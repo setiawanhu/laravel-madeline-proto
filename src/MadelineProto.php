@@ -40,8 +40,7 @@ class MadelineProto
      *
      * @param string $code
      * @return TelegramObject auth.Authorization
-     * @throws NeedTwoFactorAuthException
-     * @throws SignUpNeededException
+     * @throws NeedTwoFactorAuthException|SignUpNeededException
      */
     public function completePhoneLogin(string $code): TelegramObject
     {
@@ -50,10 +49,8 @@ class MadelineProto
         switch ($response->return_type) {
             case Account::PASSWORD:
                 throw new NeedTwoFactorAuthException($response);
-                break;
             case Account::NEED_SIGN_UP:
                 throw new SignUpNeededException();
-                break;
         }
 
         return $response;
