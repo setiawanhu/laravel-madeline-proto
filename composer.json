@@ -2,7 +2,7 @@
     "name": "setiawanhu/laravel-madeline-proto",
     "description": "A third party Telegram client library danog/MadelineProto wrapper for Laravel",
     "type": "library",
-    "license": "GPL-2.0-only",
+    "license": "AGPL-3.0-only",
     "authors": [
         {
             "name": "Setiawan Hu",
