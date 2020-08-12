@@ -30,7 +30,7 @@ This wrapper package supports for running both [single](https://github.com/setia
 
 ## Dig Deeper
 
-Please check [wiki](https://github.com/setiawanhu/sanctum-auth/wiki) for more details about laravel-madeline-proto usage
+Please check [wiki](https://github.com/setiawanhu/laravel-madeline-proto/wiki) for more details about laravel-madeline-proto usage
 
 # Notes
 
