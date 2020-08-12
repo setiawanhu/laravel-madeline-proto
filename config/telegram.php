@@ -6,7 +6,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Madeline Proto Session File Location
+    | Madeline Proto Sessions
     |--------------------------------------------------------------------------
     |
     | To store information about an account session and avoid re-logging in, serialization must be done.
@@ -15,9 +15,21 @@ return [
     | and on shutdown. If the scripts shutdowns normally (without ctrl+c or fatal errors/exceptions), the
     | session will also be serialized automatically.
     |
+    | Types: "single", "multiple"
+    |
     */
 
-    'session_file' => env('MADELINE_PROTO_SESSION_FILE', 'session.madeline'),
+    'sessions' => [
+
+        'single' => [
+            'session_file' => env('MP_SESSION_FILE', 'session.madeline'),
+        ],
+
+        'multiple' => [
+            'table' => 'telegram_sessions'
+        ],
+
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -37,15 +49,15 @@ return [
 
             'logger' => Logger::FILE_LOGGER,
 
-            'logger_param' => storage_path('logs/madeline-proto.log'),
+            'logger_param' => env('MP_LOGGER_PATH', storage_path('logs/madeline-proto.log')),
 
         ],
 
         'app_info' => [
 
-            'api_id' => env('TELEGRAM_API_ID'),
+            'api_id' => env('MP_TELEGRAM_API_ID'),
 
-            'api_hash' => env('TELEGRAM_API_HASH'),
+            'api_hash' => env('MP_TELEGRAM_API_HASH'),
 
         ],
     ],
