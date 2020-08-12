@@ -1,0 +1,26 @@
+<?php
+
+namespace {{package}};
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * Class TelegramSession.
+ *
+ * @package {{package}}
+ * @mixin Builder
+ *
+ * @property int id
+ * @property int {{user}}_id
+ * @property string session_file
+ */
+class TelegramSession extends Model
+{
+    /**
+     * @inheritdoc
+     */
+    protected $fillable = [
+        '{{user}}_id', 'session_file'
+    ];
+}
