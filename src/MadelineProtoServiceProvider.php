@@ -2,8 +2,9 @@
 
 namespace Hu\MadelineProto;
 
-use danog\MadelineProto\API as Client;
+use Hu\MadelineProto\Commands\MultiSessionCommand;
 use Hu\MadelineProto\Commands\TelegramAccountLoginCommand;
+use Hu\MadelineProto\Factories\MadelineProtoFactory;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,20 +17,27 @@ class MadelineProtoServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('madeline-proto-client', function () {
-            return new Client(config('telegram.session_file'), config('telegram.settings'));
+        $this->app->singleton('madeline-proto-factory', function (Application $app) {
+            return new MadelineProtoFactory($app->make('db'), config('telegram.sessions.multiple.table'));
         });
-        $this->app->alias('madeline-proto-client', Client::class);
+        $this->app->alias('madeline-proto-factory', MadelineProtoFactory::class);
 
-        $this->app->bind('madeline-proto', function (Application $app) {
-            return new MadelineProto($app->make('madeline-proto-client'));
+        //Only for single Telegram session.
+
+        $this->app->singleton('madeline-proto', function (Application $app) {
+            $sessionFactory = $app->make('madeline-proto-factory');
+
+            return $sessionFactory->make(config('telegram.sessions.single.session_file'), config('telegram.settings'));
         });
         $this->app->alias('madeline-proto', MadelineProto::class);
 
-        $this->app->bind('madeline-proto-messages', function (Application $app) {
-            $client = $app->make('madeline-proto-client');
+        $this->app->singleton('madeline-proto-messages', function (Application $app) {
+            $sessionFactory = $app->make('madeline-proto-factory');
 
-            return new ClientMessages($client->messages);
+            return $sessionFactory->make(
+                config('telegram.sessions.single.session_file'),
+                config('telegram.settings')
+            )->messages();
         });
         $this->app->alias('madeline-proto-messages', ClientMessages::class);
     }
@@ -58,7 +66,8 @@ class MadelineProtoServiceProvider extends ServiceProvider
     public function registerCommands()
     {
         $this->commands([
-            TelegramAccountLoginCommand::class
+            TelegramAccountLoginCommand::class,
+            MultiSessionCommand::class
         ]);
     }
 
@@ -69,7 +78,8 @@ class MadelineProtoServiceProvider extends ServiceProvider
     {
         return [
             'madeline-proto',
-            'madeline-proto-client'
+            'madeline-proto-messages',
+            'madeline-proto-factory'
         ];
     }
 }
