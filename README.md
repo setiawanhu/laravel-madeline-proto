@@ -5,7 +5,7 @@
 
 A third party Telegram client library [danog/MadelineProto](https://github.com/danog/MadelineProto) wrapper for Laravel.
 
-# Usage
+# Getting Started
 
 Add the laravel-madeline-proto to the project dependency:
 
@@ -13,7 +13,7 @@ Add the laravel-madeline-proto to the project dependency:
 composer require setiawanhu/laravel-madeline-proto
 ```
 
-Then publish the telegram config file:
+Then publish the `telegram.php` config file:
 
 ```shell script
 php artisan vendor:publish --provider="Hu\MadelineProto\MadelineProtoServiceProvider"
@@ -26,14 +26,11 @@ MP_TELEGRAM_API_ID=... //your telegram api id here
 MP_TELEGRAM_API_HASH=... //your telegram api hash here
 ```
 
-To do a login: 
+This wrapper package supports for running both [single](https://github.com/setiawanhu/laravel-madeline-proto/wiki/Single-Telegram-Account) / [multiple](https://github.com/setiawanhu/laravel-madeline-proto/wiki/Multiple-Telegram-Account) telegram account.
 
-* call `MadelineProto::phoneLogin(string $phone)` method to send the phone code.
+## Dig Deeper
 
-* call `MadelineProto::completePhoneLogin(string $code)` to complete the phone login by providing the phone code sent by the telegram.
-
-* You're logged in! Now you can use the `Messages` api.
- 
+Please check [wiki](https://github.com/setiawanhu/sanctum-auth/wiki) for more details about laravel-madeline-proto usage
 
 # Notes
 
