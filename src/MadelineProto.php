@@ -139,4 +139,14 @@ class MadelineProto
     {
         return $this->fullGetSelf() !== false;
     }
+
+    /**
+     * Get MadelineProto Message API wrapper instance.
+     *
+     * @return ClientMessages
+     */
+    public function messages()
+    {
+        return new ClientMessages($this->client->messages);
+    }
 }
