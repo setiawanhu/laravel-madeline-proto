@@ -34,12 +34,12 @@ class TelegramAccountLoginCommand extends Command
 
         $phoneNumber = $this->ask('Phone number with country code (e.g: +6282112345678)?');
 
-        MadelineProto::sendPhoneCode($phoneNumber);
+        MadelineProto::phoneLogin($phoneNumber);
 
         $code = $this->ask('Phone code?');
 
         try {
-            MadelineProto::signIn($code);
+            MadelineProto::completePhoneLogin($code);
         } catch (NeedTwoFactorAuthException $e) {
             $password = $this->ask("2FA Password (hint '{$e->account->hint}')");
 
