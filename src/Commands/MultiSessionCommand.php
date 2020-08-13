@@ -43,7 +43,7 @@ class MultiSessionCommand extends Command
         if ($this->option('model')) {
             $user = $this->ask('Telegram user model (for relation)', 'App/User');
 
-            if (file_exists(app_path()) && !$this->option('force')) {
+            if (file_exists(app_path("TelegramSession.php")) && !$this->option('force')) {
                 if (!$this->confirm("The App/TelegramSession model is already exist. Replace it?")) {
                     $this->info('Multi session export aborted.');
                     return;
