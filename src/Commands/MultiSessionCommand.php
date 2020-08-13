@@ -43,7 +43,7 @@ class MultiSessionCommand extends Command
         if ($this->option('model')) {
             $user = $this->ask('Telegram user model (for relation)', 'App/User');
 
-            if (file_exists(app_path()) && !$this->option('force')) {
+            if (file_exists(app_path("TelegramSession.php")) && !$this->option('force')) {
                 if (!$this->confirm("The App/TelegramSession model is already exist. Replace it?")) {
                     $this->info('Multi session export aborted.');
                     return;
@@ -110,15 +110,10 @@ class MultiSessionCommand extends Command
     public function compileModelStub(string $user)
     {
         $stub = file_get_contents(__DIR__ . '/stubs/telegram_session.stub');
-        $namespace = str_replace(
-            "/" . class_basename($user),
-            "",
-            $user
-        );
 
         return str_replace(
             ['{{user}}', '{{package}}'],
-            [Str::snake(class_basename($user)), $namespace],
+            [Str::snake(class_basename($user)), 'App'],
             $stub
         );
     }
