@@ -67,7 +67,7 @@ class MultiSessionCommand extends Command
 
         $this->exportMigration($tableName, $user ?? null);
 
-        $this->info('Migration file exported.');
+        $this->info('Migration file generated.');
     }
 
     /**
@@ -78,7 +78,7 @@ class MultiSessionCommand extends Command
      */
     public function exportMigration(string $tableName, string $relation = null)
     {
-        if ($relation == null) {
+        if (is_null($relation)) {
             $relation = 'App/User';
         }
 
