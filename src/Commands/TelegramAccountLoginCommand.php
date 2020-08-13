@@ -41,7 +41,7 @@ class TelegramAccountLoginCommand extends Command
         try {
             MadelineProto::completePhoneLogin($code);
         } catch (NeedTwoFactorAuthException $e) {
-            $password = $this->ask("2FA Password (hint '{$e->account->hint}')");
+            $password = $this->secret("2FA Password (hint '{$e->account->hint}')");
 
             MadelineProto::submit2FA($password);
         } catch (SignUpNeededException $e) {
