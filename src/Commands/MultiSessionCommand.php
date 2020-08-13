@@ -110,15 +110,10 @@ class MultiSessionCommand extends Command
     public function compileModelStub(string $user)
     {
         $stub = file_get_contents(__DIR__ . '/stubs/telegram_session.stub');
-        $namespace = str_replace(
-            "/" . class_basename($user),
-            "",
-            $user
-        );
 
         return str_replace(
             ['{{user}}', '{{package}}'],
-            [Str::snake(class_basename($user)), $namespace],
+            [Str::snake(class_basename($user)), 'App'],
             $stub
         );
     }
