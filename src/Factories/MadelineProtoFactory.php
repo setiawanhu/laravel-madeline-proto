@@ -45,10 +45,6 @@ class MadelineProtoFactory
      */
     public function get($session, array $config = null)
     {
-        if (is_null($config)) {
-            $config = config('telegram.settings');
-        }
-
         if (is_int($session)) {
             $session = $this->database->table($this->table)->find($session);
 
@@ -64,11 +60,16 @@ class MadelineProtoFactory
      * Generating MadelineProto (session) instance.
      *
      * @param string $sessionFile
-     * @param array $config
+     * @param array|null $config if this parameter is null, then the config from <b>telegram.php</b>
+     *                           file will be used
      * @return MadelineProto
      */
-    public function make(string $sessionFile, array $config)
+    public function make(string $sessionFile, array $config = null)
     {
+        if (is_null($config)) {
+            $config = config('telegram.settings');
+        }
+
         if (!file_exists(storage_path("app/telegram/"))) {
             mkdir(storage_path("app/telegram"), 0755);
         }
