@@ -52,6 +52,8 @@ class MadelineProtoServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->registerCommands();
 
+            $this->generateTelegramSessionFolder();
+
             $this->publishes([
                 __DIR__ . '/../config/telegram.php' => config_path('telegram.php')
             ]);
@@ -69,6 +71,18 @@ class MadelineProtoServiceProvider extends ServiceProvider
             TelegramAccountLoginCommand::class,
             MultiSessionCommand::class
         ]);
+    }
+
+    /**
+     * Create telegram session folder at storage path.
+     *
+     * @return void
+     */
+    public function generateTelegramSessionFolder()
+    {
+        if (!file_exists(storage_path("app/telegram/"))) {
+            mkdir(storage_path("app/telegram"), 0755);
+        }
     }
 
     /**
