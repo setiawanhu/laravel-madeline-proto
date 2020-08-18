@@ -49,7 +49,7 @@ return [
 
             'logger' => Logger::FILE_LOGGER,
 
-            'logger_param' => env('MP_LOGGER_PATH', storage_path('logs/madeline-proto.log')),
+            'logger_param' => env('MP_LOGGER_PATH', storage_path('logs/madeline_proto_' . date('dmY') . '.log')),
 
         ],
 

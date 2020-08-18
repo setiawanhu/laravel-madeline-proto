@@ -70,10 +70,6 @@ class MadelineProtoFactory
             $config = config('telegram.settings');
         }
 
-        if (!file_exists(storage_path("app/telegram/"))) {
-            mkdir(storage_path("app/telegram"), 0755);
-        }
-
         $client = new API(storage_path("app/telegram/$sessionFile"), $config);
 
         return new MadelineProto($client);
