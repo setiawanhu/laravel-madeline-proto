@@ -55,9 +55,9 @@ return [
 
         'app_info' => [
 
-            'api_id' => env('MP_TELEGRAM_API_ID'),
+            'api_id' => env('MP_TELEGRAM_API_ID', ''),
 
-            'api_hash' => env('MP_TELEGRAM_API_HASH'),
+            'api_hash' => env('MP_TELEGRAM_API_HASH', ''),
 
         ],
     ],
