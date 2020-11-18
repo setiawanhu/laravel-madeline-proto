@@ -1,4 +1,4 @@
-# Laravel Madeline Proto
+# Laravel MadelineProto
 [![Latest Stable Version](https://poser.pugx.org/setiawanhu/laravel-madeline-proto/v)](//packagist.org/packages/setiawanhu/laravel-madeline-proto)
 [![Total Downloads](https://poser.pugx.org/setiawanhu/laravel-madeline-proto/downloads)](//packagist.org/packages/setiawanhu/laravel-madeline-proto)
 [![License](https://poser.pugx.org/setiawanhu/laravel-madeline-proto/license)](//packagist.org/packages/setiawanhu/laravel-madeline-proto)
