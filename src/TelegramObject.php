@@ -2,7 +2,7 @@
 
 namespace Hu\MadelineProto;
 
-use danog\MadelineProto\Logger;
+use danog\MadelineProto\updates;
 use Illuminate\Contracts\Support\Arrayable;
 
 /**
@@ -24,7 +24,7 @@ class TelegramObject implements Arrayable
     /**
      * TelegramObject constructor.
      *
-     * @param $fields
+     * @param array|updates $fields request / response payloads
      */
     public function __construct($fields)
     {
@@ -62,7 +62,7 @@ class TelegramObject implements Arrayable
     /**
      * is triggered by calling isset() or empty() on inaccessible members.
      *
-     * @param $name string
+     * @param string $name
      * @return bool
      */
     public function __isset($name)
