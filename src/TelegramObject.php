@@ -63,7 +63,7 @@ class TelegramObject implements Arrayable
      * @param string $name
      * @return bool
      */
-    public function __isset($name)
+    public function __isset(string $name)
     {
         return isset($this->fields[$name]);
     }
