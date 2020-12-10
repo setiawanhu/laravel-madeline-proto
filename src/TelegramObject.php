@@ -26,10 +26,8 @@ class TelegramObject implements Arrayable
      *
      * @param array|updates $fields request / response payloads
      */
-    public function __construct($fields)
+    public function __construct($fields = [])
     {
-        Logger::log($fields);
-
         $this->fields = $fields;
     }
 
