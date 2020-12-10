@@ -16,7 +16,7 @@ class ClientMessages
      *
      * @param messages $messages
      */
-    public function __construct($messages)
+    public function __construct(messages $messages)
     {
         $this->messages = $messages;
     }
@@ -26,7 +26,7 @@ class ClientMessages
      *
      * <br>
      *
-     * For convenience, you may pass a TelegramObject to the first argument which contains
+     * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.acceptUrlAuth</strong> method payload. It's fields will be sent as payload.
      *
      * @param mixed $messageId
@@ -79,7 +79,7 @@ class ClientMessages
      *  </li>
      * </ol>
      *
-     * For convenience, you may pass a TelegramObject to the first argument which contains
+     * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.addChatUser</strong> method payload. It's fields will be sent as payload.
      *
      * @param mixed $chatId
@@ -107,7 +107,7 @@ class ClientMessages
      *
      * <br>
      *
-     * For convenience, you may pass a TelegramObject to the first argument which contains
+     * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.addChatUser</strong> method payload. It's fields will be sent as payload.
      *
      * @param mixed $hash
@@ -139,7 +139,7 @@ class ClientMessages
     /**
      * Clear recent stickers.
      *
-     * For convenience, you may pass a TelegramObject to the first argument which contains
+     * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.clearRecentStickers</strong> method payload. It's fields will be sent as payload.
      *
      * @param bool|TelegramObject $attached
@@ -183,7 +183,7 @@ class ClientMessages
      *  </li>
      * </ol>
      *
-     * For convenience, you may pass a TelegramObject to the first argument which contains
+     * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.createChat</strong> method payload. It's fields will be sent as payload.
      *
      * @param mixed $title
@@ -229,7 +229,7 @@ class ClientMessages
      *  </li>
      * </ol>
      *
-     * For convenience, you may pass a TelegramObject to the first argument which contains
+     * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.deleteChatUser</strong> method payload. It's fields will be sent as payload.
      *
      * @param mixed $chatId
@@ -275,7 +275,7 @@ class ClientMessages
      *  </li>
      * </ol>
      *
-     * For convenience, you may pass a TelegramObject to the first argument which contains
+     * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.deleteHistory</strong> method payload. It's fields will be sent as payload.
      *
      * @param mixed $peer
@@ -304,7 +304,7 @@ class ClientMessages
      *
      * <br>
      *
-     * For convenience, you may pass a TelegramObject to the first argument which contains
+     * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.deleteMessages</strong> method payload. It's fields will be sent as payload.
      *
      * @param mixed $id
@@ -328,7 +328,7 @@ class ClientMessages
     /**
      * Delete scheduled messages.
      *
-     * For convenience, you may pass a TelegramObject to the first argument which contains
+     * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.deleteScheduledMessages</strong> method payload. It's fields will be sent as payload.
      *
      * @param mixed $peer
@@ -352,7 +352,7 @@ class ClientMessages
     /**
      * Edit the description of a group/supergroup/channel.
      *
-     * For convenience, you may pass a TelegramObject to the first argument which contains
+     * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.editChatAbout</strong> method payload. It's fields will be sent as payload.
      *
      * @param mixed $peer
@@ -376,7 +376,7 @@ class ClientMessages
     /**
      * Make a user admin in a legacy group.
      *
-     * For convenience, you may pass a TelegramObject to the first argument which contains
+     * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.editChatAdmin</strong> method payload. It's fields will be sent as payload.
      *
      * @param mixed $chatId
@@ -402,7 +402,7 @@ class ClientMessages
     /**
      * Edit the default banned rights of a channel/supergroup/group.
      *
-     * For convenience, you may pass a TelegramObject to the first argument which contains
+     * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.editChatDefaultBannedRights</strong> method payload. It's fields will be sent as payload.
      *
      * @param mixed $peer
@@ -448,7 +448,7 @@ class ClientMessages
      *  </li>
      * </ol>
      *
-     * For convenience, you may pass a TelegramObject to the first argument which contains
+     * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.sendMessage</strong> method payload. It's fields will be sent as payload.
      *
      * @param mixed $peer
@@ -477,10 +477,10 @@ class ClientMessages
      *
      * <br>
      *
-     * For convenience, you may pass a TelegramObject to the first argument which contains
+     * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.getPeerDialog</strong> method payload. It's fields will be sent as payload.
      *
-     * @param int ...$peers
+     * @param array ...$peers
      * @return TelegramObject
      */
     public function getPeerDialogs(...$peers): TelegramObject
@@ -501,7 +501,7 @@ class ClientMessages
      *
      * <br>
      *
-     * For convenience, you may pass a TelegramObject to the first argument which contains
+     * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.getHistory</strong> method payload. It's fields will be sent as payload.
      *
      * @param array|TelegramObject $params
