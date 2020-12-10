@@ -480,7 +480,7 @@ class ClientMessages
      * For convenience, you may pass a {@link \Hu\MadelineProto\TelegramObject TelegramObject} to the first argument which contains
      * <strong>messages.getPeerDialog</strong> method payload. It's fields will be sent as payload.
      *
-     * @param int ...$peers
+     * @param array ...$peers
      * @return TelegramObject
      */
     public function getPeerDialogs(...$peers): TelegramObject
