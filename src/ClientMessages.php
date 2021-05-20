@@ -16,7 +16,7 @@ class ClientMessages
      *
      * @param messages $messages
      */
-    public function __construct(messages $messages)
+    public function __construct($messages)
     {
         $this->messages = $messages;
     }
