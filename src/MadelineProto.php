@@ -46,11 +46,12 @@ class MadelineProto
     {
         $response = new TelegramObject($this->client->completePhoneLogin($code));
 
-        switch ($response->return_type) {
-            case Account::PASSWORD:
-                throw new NeedTwoFactorAuthException($response);
-            case Account::NEED_SIGN_UP:
-                throw new SignUpNeededException();
+        if ($response->return_type == Account::PASSWORD) {
+            throw new NeedTwoFactorAuthException($response);
+        }
+
+        if ($response->return_type == Account::NEED_SIGN_UP) {
+            throw new SignUpNeededException();
         }
 
         return $response;
@@ -145,7 +146,7 @@ class MadelineProto
      *
      * @return ClientMessages
      */
-    public function messages()
+    public function messages(): ClientMessages
     {
         return new ClientMessages($this->client->messages);
     }
